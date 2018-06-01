@@ -36,7 +36,7 @@ PlatformRefImpl createPlatform(Injector injector) {
           'previous one to create a new one.');
     }
     return true;
-  });
+  }());
   if (isDartVM && !assertionsEnabled()) {
     window.console.warn(''
         'When using Dartium, CHECKED mode is recommended to catch type and '
@@ -128,7 +128,7 @@ class PlatformRefImpl extends PlatformRef {
             'Platforms have to be initialized via `createPlatform`!');
       }
       return true;
-    });
+    }());
     _injector = injector;
 
     List initializers = injector.get(PLATFORM_INITIALIZER, null);
@@ -341,7 +341,7 @@ class ApplicationRefImpl extends ApplicationRef {
             'running. Wait for them using waitForAsyncInitializers().');
       }
       return true;
-    });
+    }());
 
     return run(() {
       _rootComponentFactories.add(componentFactory);
@@ -414,7 +414,7 @@ class ApplicationRefImpl extends ApplicationRef {
         throw new BaseException('ApplicationRef.tick is called recursively');
       }
       return true;
-    });
+    }());
 
     // Run the top-level 'tick' (i.e. detectChanges on root components).
     try {

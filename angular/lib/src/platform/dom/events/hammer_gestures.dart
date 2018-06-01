@@ -17,7 +17,7 @@ void overrideDefault(js.JsObject mc, String eventName, Object config) {
 @Injectable()
 class HammerGestureConfig {
   List<String> events = [];
-  Map overrides = {};
+  Map<Object, String> overrides = {};
 
   js.JsObject buildHammer(Element element) {
     var mc = new js.JsObject(js.context['Hammer'], [element]);

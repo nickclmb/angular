@@ -98,7 +98,7 @@ class NgZone {
       new StreamController.broadcast(sync: true);
   final StreamController _onStableController =
       new StreamController.broadcast(sync: true);
-  final StreamController _onErrorController =
+  final StreamController<NgZoneError> _onErrorController =
       new StreamController.broadcast(sync: true);
 
   Zone _outerZone;
@@ -331,7 +331,7 @@ class NgZone {
   bool get isRunning => _isRunning;
 
   /// Notify that an error has been delivered.
-  Stream get onError => _onErrorController.stream;
+  Stream<NgZoneError> get onError => _onErrorController.stream;
 
   /// Notifies when there is no more microtasks enqueue in the current VM Turn.
   /// This is a hint for Angular to do change detection, which may enqueue more microtasks.
@@ -399,6 +399,14 @@ class WrappedTimer implements Timer {
   }
 
   bool get isActive => _timer.isActive;
+
+  // TODO: uncomment this with dart 2.0 release
+  @override
+  int get tick {
+    throw new UnimplementedError('tick is not implemented for ${runtimeType}');
+    // TODO: uncomment this with dart 2.0 release
+    //return _timer.tick;
+  }
 }
 
 /// Stores error information; delivered via [NgZone.onError] stream.

@@ -63,8 +63,8 @@ class SelectControlValueAccessor implements ControlValueAccessor {
 
   @override
   void registerOnChange(dynamic fn(dynamic value)) {
-    onChange = (String valueString) {
-      fn(_getOptionValue(valueString));
+    onChange = (dynamic valueString) {
+      fn(_getOptionValue(valueString as String));
     };
   }
 

@@ -177,7 +177,7 @@ class ReflectableEmitter {
   String _generateDependencies(DependencyInvocation invocation) {
     final output = new StringBuffer('const [');
     for (final param in invocation.positional) {
-      output..write('const [')..write(_generateToken(param.token))..write(',');
+      output..write('const <Object>[')..write(_generateToken(param.token))..write(',');
       if (param.skipSelf) {
         output.write('const _ngRef.SkipSelf(),');
       }

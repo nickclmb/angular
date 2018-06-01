@@ -7,7 +7,7 @@ typedef void DefaultIterableCallback(
   int currentIndex,
 );
 
-typedef dynamic TrackByFn(int index, dynamic item);
+typedef dynamic TrackByFn<T>(int index, T item);
 
 var trackByIdentity = (int index, dynamic item) => item;
 

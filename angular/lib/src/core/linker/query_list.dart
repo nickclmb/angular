@@ -6,7 +6,7 @@ import 'dart:collection';
 ///
 /// Provides  an observable list for references to child components requested
 /// by @ViewChildren and @ViewChild annotations.
-class QueryList<T> extends Object with IterableMixin<T> {
+class QueryList<T> extends Object with IterableMixin<T> implements Iterable<T> {
   bool _dirty = true;
   List<T> _results = const [];
   StreamController<Iterable<T>> _streamController;

@@ -108,6 +108,6 @@ String internalSanitizeStyle(String value) {
     _logger.warning('Sanitizing unsafe style value $value '
         '(see http://g.co/ng/security#xss).');
     return true;
-  });
+  }());
   return 'unsafe';
 }

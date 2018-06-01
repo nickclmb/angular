@@ -35,7 +35,7 @@ void registerComponent(Type type, dynamic /*ComponentFactory*/ component) {
       throw new StateError('Could not find a component factory for $type.');
     }
     return true;
-  });
+  }());
   return component;
 }
 
@@ -57,7 +57,7 @@ Function getFactory(Type type) {
       throw new StateError('Could not find a factory for $type.');
     }
     return true;
-  });
+  }());
   return factory;
 }
 

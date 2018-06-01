@@ -835,7 +835,7 @@ o.Expression createStaticNodeDebugInfo(CompileNode node) {
 o.ClassStmt createViewClass(
     CompileView view, o.Expression nodeDebugInfosVar, Parser parser) {
   var viewConstructor = _createViewClassConstructor(view, nodeDebugInfosVar);
-  var viewMethods = (new List.from([
+  var viewMethods = (new List<o.ClassMethod>.from([
     new o.ClassMethod("build", [], generateBuildMethod(view, parser),
         o.importType(Identifiers.ComponentRef, null), null, ['override']),
     new o.ClassMethod(

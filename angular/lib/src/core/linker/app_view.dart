@@ -361,7 +361,7 @@ abstract class AppView<T> {
         throw new ViewDestroyedException('detectChanges');
       }
       return true;
-    });
+    }());
 
     if (lastGuardedView != null) {
       // Run change detection in "slow-mode" to catch thrown exceptions.
